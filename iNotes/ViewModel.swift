@@ -14,4 +14,9 @@ class ViewModel {
         self.notes = notes
     }
     
+    func createNoteWith(title: String, text: String){
+        let note: Note = .init(title: title, text: text, createdAt: .now)
+        notes.append(note)
+    }
+    
 }
