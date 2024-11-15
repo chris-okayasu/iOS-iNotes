@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import Observation
 
+@Observable
 class ViewModel {
     var notes: [Note]
     
