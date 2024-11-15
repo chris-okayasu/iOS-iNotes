@@ -26,5 +26,7 @@ class ViewModel {
             notes[index] = updateNote
         }
     }
-    
+    func removeNoteWith(id: UUID){
+        notes.removeAll(where: {$0.id == id})
+    }
 }
