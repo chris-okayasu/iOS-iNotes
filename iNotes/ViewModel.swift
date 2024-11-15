@@ -14,9 +14,17 @@ class ViewModel {
         self.notes = notes
     }
     
+    // insert a new note to the array of notes
     func createNoteWith(title: String, text: String){
         let note: Note = .init(title: title, text: text, createdAt: .now)
         notes.append(note)
+    }
+    // update a note by UUID
+    func updateNoteWith(id: UUID, newTitle: String, newText: String){
+        if let index = notes.firstIndex(where: {$0.id == id}){
+            let updateNote = Note(id: id, title: newTitle, text: newText, createdAt: notes[index].createdAt)
+            notes[index] = updateNote
+        }
     }
     
 }
