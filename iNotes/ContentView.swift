@@ -10,6 +10,7 @@ import SwiftData
 
 struct ContentView: View {
     var viewModel: ViewModel = .init()
+    @State var showCreateNote: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -25,6 +26,24 @@ struct ContentView: View {
                     }
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .status) {
+                    Button(action: {
+                        showCreateNote.toggle()
+                    }, label: {
+                        Label("Create Note", systemImage: "square.and.pencil")
+                            .labelStyle(TitleAndIconLabelStyle())
+                    })
+                    .buttonStyle(.bordered)
+                    .tint(.accentColor)
+                    .bold()
+                }
+            }
+            .navigationTitle("iNotes")
+            .fullScreenCover(isPresented: $showCreateNote, content: {
+                CreateNoteView(viewModel: viewModel)
+            })
+            
         }
     }
 }
