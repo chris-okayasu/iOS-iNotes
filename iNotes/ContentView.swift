@@ -11,6 +11,7 @@ import SwiftData
 struct ContentView: View {
     var viewModel: ViewModel = .init()
     @State var showCreateNote: Bool = false
+    @State var showUpdateOrDeleteNote: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -40,6 +41,10 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("iNotes")
+            .navigationDestination(for: Note.self, destination: {note in
+                UpdateAndDeleteNoteView(viewModel: viewModel, id: note.id, title: note.title, text: note.getText)
+            })
+            
             .fullScreenCover(isPresented: $showCreateNote, content: {
                 CreateNoteView(viewModel: viewModel)
             })
