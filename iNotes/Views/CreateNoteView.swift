@@ -46,7 +46,7 @@ struct CreateNoteView: View {
         }
     }
 }
-
-#Preview {
-    CreateNoteView(viewModel: .init())
-}
+//
+//#Preview {
+//    CreateNoteView(viewModel: .init())
+//}

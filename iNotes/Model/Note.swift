@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Note: Identifiable, Hashable {
-    let id: UUID
-    let title: String
-    let text: String?
-    let createdAt: Date
+@Model
+class Note: Identifiable, Hashable {
+    @Attribute(.unique) var id: UUID
+    var title: String
+    var text: String?
+    var createdAt: Date
     
     // get text if exist or empty string
     var getText: String {

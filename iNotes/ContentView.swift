@@ -53,10 +53,10 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView(viewModel: .init(notes: [
-        .init(title: "Hello", text: "World", createdAt: .now),
-        .init(title: "SwiftUI", text: "Is Awesome", createdAt: .now),
-        .init(title: "Swift", text: "Is Cool", createdAt: .now)
-    ]))
-}
+//#Preview {
+//    ContentView(viewModel: .init(notes: [
+//        .init(title: "Hello", text: "World", createdAt: .now),
+//        .init(title: "SwiftUI", text: "Is Awesome", createdAt: .now),
+//        .init(title: "Swift", text: "Is Cool", createdAt: .now)
+//    ]))
+//}

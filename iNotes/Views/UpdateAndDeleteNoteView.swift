@@ -49,8 +49,8 @@ struct UpdateAndDeleteNoteView: View {
     }
 }
 
-#Preview {
-    NavigationStack {
-        UpdateAndDeleteNoteView(viewModel: .init(), id: .init(), title: "test", text: "test2")
-    }
-}
+//#Preview {
+//    NavigationStack {
+//        UpdateAndDeleteNoteView(viewModel: .init(), id: .init(), title: "test", text: "test2")
+//    }
+//}
