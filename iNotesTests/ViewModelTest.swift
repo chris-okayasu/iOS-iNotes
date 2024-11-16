@@ -35,4 +35,71 @@ final class ViewModelTest: XCTestCase {
         XCTAssertEqual(viewModel.notes.first?.text, text) // text is text
     }
     
+    // new note is added to the array
+    func testCreateThreeNotesWith(){
+        //Given
+        let title1 = "title 1"
+        let text1 = "text 1"
+        
+        let title2 = "title 2"
+        let text2 = "text 2"
+        
+        let title3 = "title 3"
+        let text3 = "text 3"
+        
+        //When
+        viewModel.createNoteWith(title: title1, text: text1)
+        viewModel.createNoteWith(title: title2, text: text2)
+        viewModel.createNoteWith(title: title3, text: text3)
+        
+        //Then
+        XCTAssertEqual(viewModel.notes.count, 3) // new value at array
+        XCTAssertEqual(viewModel.notes.first?.title, title1)
+        XCTAssertEqual(viewModel.notes.first?.text, text1)
+        
+        XCTAssertEqual(viewModel.notes[1].title, title2)
+        XCTAssertEqual(viewModel.notes[1].text, text2)
+        
+        XCTAssertEqual(viewModel.notes[2].title, title3)
+        XCTAssertEqual(viewModel.notes[2].text, text3)
+    }
+    
+    func testUpdateNoteWith(){
+        // Given
+        let title = "title"
+        let text = "text"
+        
+        let newTitle = "new title"
+        let newText = "new text"
+        
+        viewModel.createNoteWith(title: title, text: text) // create a note
+        
+        // When
+        if let id = viewModel.notes.first?.id {
+            viewModel.updateNoteWith(id: id, newTitle: newTitle, newText: newText)
+            // Then
+            XCTAssertEqual(viewModel.notes.first?.id, id)
+            XCTAssertEqual(viewModel.notes.first?.title, newTitle)
+            XCTAssertEqual(viewModel.notes.first?.text, newText)
+        } else {
+            XCTFail("No note found")
+        }
+    }
+    
+    func testRemoveNoteWith(){
+        // Given
+        let title = "title"
+        let text = "text"
+        
+        viewModel.createNoteWith(title: title, text: text)
+        // When
+        if let id = viewModel.notes.first?.id {
+            // Then
+            viewModel.removeNoteWith(id: id)
+            XCTAssertNil(viewModel.notes.first)
+            XCTAssertTrue(viewModel.notes.isEmpty)
+        } else {
+            XCTFail("The note was not deleted")
+        }
+    }
 }
