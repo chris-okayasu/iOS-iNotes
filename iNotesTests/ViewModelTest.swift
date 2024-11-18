@@ -8,16 +8,36 @@
 import XCTest
 @testable import iNotes
 
+var mockDatabase: [Note] = []
+
+struct CreateNoteUseCaseMock: CreateNoteProtocol {
+    func createNoteWith(title: String, text: String) throws  {
+        let note = Note(title: title, text: text)
+        mockDatabase.append(note)
+    }
+}
+
+struct FetchAllNoteUseCaseMock: FetchAllNotesUseCaseProtocol {
+    func FetchAll() throws -> [Note] {
+        return mockDatabase
+    }
+}
+
+
 final class ViewModelTest: XCTestCase {
     var viewModel : ViewModel!
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        viewModel = ViewModel()
+        viewModel = ViewModel(
+            createNoteUseCase: CreateNoteUseCaseMock(),
+            fetchAllNotesUseCase: FetchAllNoteUseCaseMock()
+        )
     }
     
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        mockDatabase = []
     }
     
     // new note is added to the array

@@ -12,14 +12,21 @@ import Observation
 class ViewModel {
     var notes: [Note]
     
-    var createNoteUseCase: CreateNoteUseCase
-    var fetchAllNotesUseCase: FetchAllNotesUseCase
+    var createNoteUseCase: CreateNoteProtocol
+    var fetchAllNotesUseCase: FetchAllNotesUseCaseProtocol
+//    var deleteNoteUseCase: DeleteNoteUseCase
     
-    init(notes: [Note] = [] , createNoteUseCase: CreateNoteUseCase = CreateNoteUseCase(), fetchAllNotesUseCase: FetchAllNotesUseCase = FetchAllNotesUseCase()) {
+    init(notes: [Note] = [] ,
+         createNoteUseCase: CreateNoteProtocol = CreateNoteUseCase(),
+         fetchAllNotesUseCase: FetchAllNotesUseCaseProtocol = FetchAllNotesUseCase()
+         /*deleteNoteUseCase: DeleteNoteUseCase = DeleteNoteUseCase()*/) {
+        
         self.notes = notes
         self.createNoteUseCase = createNoteUseCase
         self.fetchAllNotesUseCase = fetchAllNotesUseCase
+//        self.deleteNoteUseCase = deleteNoteUseCase
         fetchAllNotes()
+        
     }
     
     // insert a new note to the array of notes
@@ -52,5 +59,12 @@ class ViewModel {
     
     func removeNoteWith(id: UUID){
         notes.removeAll(where: {$0.id == id})
+//        do {
+//            try deleteNoteUseCase.deleteNoteWith({$0.id == id})
+//            fetchAllNotes()
+//        } catch {
+//            print("Error: \(error.localizedDescription)")
+//        }
+//        
     }
 }
