@@ -18,8 +18,8 @@ enum DatabaseError: Error {
 protocol NotesDataBaseProtocol {
     func save(note: Note)  throws
     func fetchAll()  throws -> [Note]
-//    func update(note: Note) throws
-//    func delete(note: Note) throws
+    func updateWith(id: UUID, title: String, text: String) throws
+    func removeWith(id: UUID) throws
 }
 
 class NotesDataBase: NotesDataBaseProtocol {
@@ -67,15 +67,46 @@ class NotesDataBase: NotesDataBaseProtocol {
             throw DatabaseError.errorFetch
         }
     }
-//    
-//    @MainActor
-//    func delete(note: Note) throws {
-//        container.mainContext.delete(note)
-//        do {
-//            try container.mainContext.save()
-//        } catch {
-//            print("Error deleting note: \(error.localizedDescription)")
-//            throw DatabaseError.errorDelete
-//        }
-//    }
+    
+    @MainActor
+    func updateWith(id: UUID, title: String, text: String) throws {
+        // Predicate
+        let predicate = #Predicate<Note> {
+            $0.id == id
+        }
+        var fetchDescriptor = FetchDescriptor<Note>(predicate: predicate)
+        fetchDescriptor.fetchLimit = 1
+        
+        do{
+            guard let updateNote = try container.mainContext.fetch(fetchDescriptor).first else {
+                throw DatabaseError.errorUpdate
+            }
+            updateNote.title = title
+            updateNote.text = text
+            try container.mainContext.save()
+        } catch{
+            print("Error updating note: \(error.localizedDescription)")
+            throw DatabaseError.errorUpdate
+        }
+    }
+
+    @MainActor
+    func removeWith(id: UUID) throws {
+        let predicate = #Predicate<Note> {
+            $0.id == id
+        }
+        var fetchDescriptor = FetchDescriptor<Note>(predicate: predicate)
+        fetchDescriptor.fetchLimit = 1
+        do {
+           guard let deleteNote = try container.mainContext.fetch(fetchDescriptor).first else {
+                throw DatabaseError.errorDelete
+            }
+            container.mainContext.delete(deleteNote)
+            try container.mainContext.save()
+            
+        } catch {
+            print("Error deleting note: \(error.localizedDescription)")
+            throw DatabaseError.errorDelete
+        }
+    }
 }
