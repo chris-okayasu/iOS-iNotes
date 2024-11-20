@@ -83,5 +83,50 @@ final class ViewModelIntegrationTest: XCTestCase {
             XCTAssertEqual(note.text, expectedNotes[index].text, "Text does not match at index \(index)")
         }
     }
+    
+    func testUpddateNote() {
+        sut.createNoteWith(title: "test title", text: "test text")
+        
+        guard let note = sut.notes.first else {
+            XCTFail("Should have a note")
+            return
+        }
+        
+        sut.updateNoteWith(id: note.id, newTitle: "new title 22", newText: "new text 33")
+        sut.fetchAllNotes()
+        
+        XCTAssertEqual(sut.notes.count, 1)
+        XCTAssertEqual(sut.notes.first?.title, "new title 22", "Title does not match")
+        XCTAssertEqual(sut.notes.first?.text, "new text 33", "Text does not match")
+       
+    }
+    
+    func testRemoveNote() {
+        sut.createNoteWith(title: "test title 1", text: "test text 1")
+        sut.createNoteWith(title: "test title 2", text: "test text 2")
+        sut.createNoteWith(title: "test title 3", text: "test text 3")
+        sut.createNoteWith(title: "test title 4", text: "test text 4")
+        sut.createNoteWith(title: "test title 5", text: "test text 5")
+        
+        // Seleccionar la primera nota
+        guard let noteToDelete = sut.notes.first else {
+            XCTFail("Should have a note to delete")
+            return
+        }
+        
+        // Guardar valores de la nota a eliminar
+        let noteID = noteToDelete.id
+        let noteTitle = noteToDelete.title
+        let noteText = noteToDelete.text
+        
+        sut.removeNoteWith(id: noteID)
+        
+        XCTAssertEqual(sut.notes.count, 4, "Should be 4 notes")
+        
+        XCTAssertFalse(sut.notes.contains(where: { $0.id == noteID }), "Note with the deleted ID should not exist")
+        
+        XCTAssertFalse(sut.notes.contains(where: { $0.title == noteTitle && $0.text == noteText }), "Note with the deleted content should not exist")
+    }
+
 
 }
