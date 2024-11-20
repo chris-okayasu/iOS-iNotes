@@ -127,6 +127,16 @@ final class ViewModelIntegrationTest: XCTestCase {
         
         XCTAssertFalse(sut.notes.contains(where: { $0.title == noteTitle && $0.text == noteText }), "Note with the deleted content should not exist")
     }
-
+    
+    func testRemoveNoteInDataBaseThrowError() {
+        sut.removeNoteWith(id: UUID())
+        
+        XCTAssertEqual(sut.notes.count, 0, "Should be 0 notes")
+        
+        XCTAssertNotNil(sut.databaseError)
+        
+        XCTAssertEqual(sut.databaseError, DatabaseError.errorDelete)
+        
+    }
 
 }
