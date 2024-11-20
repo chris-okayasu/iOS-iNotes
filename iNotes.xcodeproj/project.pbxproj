@@ -12,6 +12,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8E02F44F2CEE687F00C05196 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E4237D62CE7C61D0032A1FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8E4237DD2CE7C61D0032A1FA;
+			remoteInfo = iNotes;
+		};
 		8E4238052CE7EC1F0032A1FA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8E4237D62CE7C61D0032A1FA /* Project object */;
@@ -22,11 +29,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E02F4492CEE687F00C05196 /* iNotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iNotesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E4237DE2CE7C61D0032A1FA /* iNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E4238012CE7EC1F0032A1FA /* iNotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iNotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		8E02F44A2CEE687F00C05196 /* iNotesUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = iNotesUITests;
+			sourceTree = "<group>";
+		};
 		8E4237E02CE7C61D0032A1FA /* iNotes */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = iNotes;
@@ -40,6 +53,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8E02F4462CEE687F00C05196 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8E4237DB2CE7C61D0032A1FA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -64,6 +84,7 @@
 			children = (
 				8E4237E02CE7C61D0032A1FA /* iNotes */,
 				8E4238022CE7EC1F0032A1FA /* iNotesTests */,
+				8E02F44A2CEE687F00C05196 /* iNotesUITests */,
 				8E4237DF2CE7C61D0032A1FA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,6 +94,7 @@
 			children = (
 				8E4237DE2CE7C61D0032A1FA /* iNotes.app */,
 				8E4238012CE7EC1F0032A1FA /* iNotesTests.xctest */,
+				8E02F4492CEE687F00C05196 /* iNotesUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -80,6 +102,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8E02F4482CEE687F00C05196 /* iNotesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E02F4512CEE687F00C05196 /* Build configuration list for PBXNativeTarget "iNotesUITests" */;
+			buildPhases = (
+				8E02F4452CEE687F00C05196 /* Sources */,
+				8E02F4462CEE687F00C05196 /* Frameworks */,
+				8E02F4472CEE687F00C05196 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8E02F4502CEE687F00C05196 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				8E02F44A2CEE687F00C05196 /* iNotesUITests */,
+			);
+			name = iNotesUITests;
+			packageProductDependencies = (
+			);
+			productName = iNotesUITests;
+			productReference = 8E02F4492CEE687F00C05196 /* iNotesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		8E4237DD2CE7C61D0032A1FA /* iNotes */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8E4237EE2CE7C61F0032A1FA /* Build configuration list for PBXNativeTarget "iNotes" */;
@@ -137,6 +182,10 @@
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					8E02F4482CEE687F00C05196 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 8E4237DD2CE7C61D0032A1FA;
+					};
 					8E4237DD2CE7C61D0032A1FA = {
 						CreatedOnToolsVersion = 16.0;
 					};
@@ -165,11 +214,19 @@
 			targets = (
 				8E4237DD2CE7C61D0032A1FA /* iNotes */,
 				8E4238002CE7EC1F0032A1FA /* iNotesTests */,
+				8E02F4482CEE687F00C05196 /* iNotesUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8E02F4472CEE687F00C05196 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8E4237DC2CE7C61D0032A1FA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -187,6 +244,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8E02F4452CEE687F00C05196 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8E4237DA2CE7C61D0032A1FA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -204,6 +268,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8E02F4502CEE687F00C05196 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8E4237DD2CE7C61D0032A1FA /* iNotes */;
+			targetProxy = 8E02F44F2CEE687F00C05196 /* PBXContainerItemProxy */;
+		};
 		8E4238062CE7EC1F0032A1FA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8E4237DD2CE7C61D0032A1FA /* iNotes */;
@@ -212,6 +281,40 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		8E02F4522CEE687F00C05196 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UTN34KCGJ6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sankyu.iNotesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iNotes;
+			};
+			name = Debug;
+		};
+		8E02F4532CEE687F00C05196 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UTN34KCGJ6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sankyu.iNotesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iNotes;
+			};
+			name = Release;
+		};
 		8E4237EC2CE7C61F0032A1FA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -428,6 +531,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8E02F4512CEE687F00C05196 /* Build configuration list for PBXNativeTarget "iNotesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E02F4522CEE687F00C05196 /* Debug */,
+				8E02F4532CEE687F00C05196 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8E4237D92CE7C61D0032A1FA /* Build configuration list for PBXProject "iNotes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
