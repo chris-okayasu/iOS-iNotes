@@ -21,6 +21,7 @@ struct CreateNoteView: View {
                     TextField("", text: $text, prompt: Text("Text"), axis: .vertical)
                 } footer: {
                     Text("*Title is Required")
+                        .foregroundStyle(.red)
                 }
             }
             .toolbar{
