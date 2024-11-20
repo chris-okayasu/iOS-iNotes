@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 protocol UpdateNoteUseCaseProtocol {
     func updateNoteWith(id: UUID, title: String, text: String) throws
 }

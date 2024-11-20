@@ -15,7 +15,7 @@ enum DatabaseError: Error {
     case errorDelete
 }
 
-@MainActor
+
 protocol NotesDataBaseProtocol {
     func save(note: Note)  throws
     func fetchAll()  throws -> [Note]
